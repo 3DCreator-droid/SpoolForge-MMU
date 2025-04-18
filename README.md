@@ -1,19 +1,65 @@
-# Klipper Multi-color Configs for Arduino Uno and Rpi Pico
-While exploring options of adding extra I/O, I found that using a usb with an arduino and cnc sheild I had laying around could make multicolor an option. Here are my findings with both Arduino over usb and a Rpi Pico with a canbus connection.
+# SpoolForge MMU - A budget friendly DIY AMS
+As of right now, this is no different than the repo it was forked from, so go there instead! I have limited time, so I can't update this a bunch, but it will happen eventually. My recomendation
 
-## Why no arduino uno canbus??
-Right now klipper only supports [CAN on stm32, SAME5x, and rp2040 chips](https://www.klipper3d.org/CANBUS.html#device-hardware). Arduino uno doesn't quite make the cut in this case.
+Update Roadmap:
 
-## Items you'll need to utilize Arduino config
-- Your 3d printer running klipper
-- [Arduino uno, cnc sheild and stepper drivers](https://www.amazon.com/DAOKI-Expansion-Arduino-Heatsink-Engraving/dp/B08KFYKKN4/ref=sr_1_5?crid=O6SY9OGG34GW&keywords=arduino+cnc&qid=1703170197&sprefix=arduino+c%2Caps%2C391&sr=8-5)
-- up to 4x Nema 17 stepper motors
-- up to 4x [extruder parts](https://www.amazon.com/Comgrow-Upgraded-Replacement-Aluminum-Extruder/dp/B07B5118T7/ref=sr_1_13?crid=2T4YEVZ3Q8SVC&keywords=ender+3+extruder&qid=1703171029&sprefix=ender+3+extrude%2Caps%2C143&sr=8-13)
-- USB cable
-- 12-24v power supply
-- Extra PTFE tubes and connectors
-- [3d printed quad splitter](https://www.printables.com/model/466735-4-to-1-bowdenptfe-tube-joinersplitter)
-- A 2 to 4 color holder or stand
+-Ease of use macros (the original creator has done a great job already, but there are a few things I would like to add)
+
+-AMS.cfg generator: Similar to the 3Dchameleon code generator, but instead of generating button presses, it will generate your macros.
+
+-SpoolForge Enclosure 
+
+-Dual 5015 toolhead w/ filament cutter for printers with the Ender-3 extuder plate (encluding CR-10, E3v2, E3 pro, and maybe E3 max)
+
+-More detailed instructions
+
+-Mainsail theme
+
+More updates coming soon!
+
+## Current BOM (may change)
+-A Klipper printer with a spare USB port and a filament cutter (the cutter technically isn't required, but you will probably die trying to perfect tip shaping)
+
+-CNC Shield v3 Kit (you could use other boards, like a BTT pico, but this is the most cost effective):
+  https://www.aliexpress.us/item/3256808331843303.html?spm=a2g0o.productlist.main.25.78478171IR3BQ9&algo_pvid=1e7f1e16-7855-4b98-9219-3707b2227be7&algo_exp_id=1e7f1e16-7855-4b98-9219-3707b2227be7-12&pdp_ext_f=%7B%22order%22%3A%221%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%2111.08%217.87%21%21%2111.08%217.87%21%402103246617450025792606825e5068%2112000045525251744%21sea%21US%216325345170%21X&curPageLogUid=845Ioq7nRSY0&utparam-url=scene%3Asearch%7Cquery_from%3A
+  
+-2-4 Nema 17 stepper motors (the amount of motors is the amount of colors. Pancake steppers worked for me, but I had quite a few torque-related issues)
+
+-2-4 Extruders:
+      A quick note: there are tons of options for extruders. You could go with the cheap Mk8, or go with the quite strong Voron M4. You could even get a mix of them, but that would       require some manual configuaration. This is up to you. The extruder options are listed below.
+
+  Aluminum Mk8:
+https://www.aliexpress.us/item/3256806663498456.html?spm=a2g0o.productlist.main.7.3993PA2DPA2DZq&aem_p4p_detail=202504181147474377157000056890004338616&algo_pvid=00f76bf7-6841-48a0-a042-3cc0785fac9a&algo_exp_id=00f76bf7-6841-48a0-a042-3cc0785fac9a-3&pdp_ext_f=%7B%22order%22%3A%22201%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%214.84%214.84%21%21%2135.15%2135.15%21%402101e7f617450020674765210e4072%2112000038509805535%21sea%21US%216325345170%21X&curPageLogUid=QauW0djtvX1A&utparam-url=scene%3Asearch%7Cquery_from%3A&search_p4p_id=202504181147474377157000056890004338616_1
+
+   Dual Drive Mk8:
+https://www.aliexpress.us/item/3256807474433787.html?spm=a2g0o.productlist.main.7.7bdb44f0L5hHoR&aem_p4p_detail=202504181149537771076731941640004421295&algo_pvid=2f486567-52fc-4f1f-b45a-fb817e7d36e5&algo_exp_id=2f486567-52fc-4f1f-b45a-fb817e7d36e5-3&pdp_ext_f=%7B%22order%22%3A%22123%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%215.51%215.51%21%21%2140.01%2140.01%21%402101c5b117450021933307538e8081%2112000041695695206%21sea%21US%216325345170%21X&curPageLogUid=nPevx7GM6SZT&utparam-url=scene%3Asearch%7Cquery_from%3A&search_p4p_id=202504181149537771076731941640004421295_3
+
+  Voron M4 (note: this requires a soldering iron and parts printed in ABS/PETG to assemble):
+https://www.aliexpress.us/item/3256804563706032.html?spm=a2g0o.productlist.main.1.8ad49458dXoKdq&algo_pvid=55409829-aba2-4b2c-98e2-fa23fc7f94cb&algo_exp_id=55409829-aba2-4b2c-98e2-fa23fc7f94cb-0&pdp_ext_f=%7B%22order%22%3A%22128%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%216.09%216.09%21%21%216.09%216.09%21%40210337c117450022781751039efcc7%2112000033727809094%21sea%21US%216325345170%21X&curPageLogUid=nkyuJlWQJAKZ&utparam-url=scene%3Asearch%7Cquery_from%3A
+
+  BMG Clone:
+https://www.aliexpress.us/item/3256806582539101.html?spm=a2g0o.productlist.main.5.3993PA2DPA2DZq&algo_pvid=00f76bf7-6841-48a0-a042-3cc0785fac9a&algo_exp_id=00f76bf7-6841-48a0-a042-3cc0785fac9a-2&pdp_ext_f=%7B%22order%22%3A%22217%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%215.15%215.15%21%21%215.15%215.15%21%402101e7f617450020674765210e4072%2112000038237815138%21sea%21US%216325345170%21X&curPageLogUid=Ys3xBXr3C8cF&utparam-url=scene%3Asearch%7Cquery_from%3A
+
+-USB-B cable:
+https://www.aliexpress.us/item/2251832513860879.html?spm=a2g0o.productlist.main.1.687418f41yWhw3&algo_pvid=df7df7bc-42b9-4d71-893d-0d1a78601844&algo_exp_id=df7df7bc-42b9-4d71-893d-0d1a78601844-0&pdp_ext_f=%7B%22order%22%3A%222890%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%211.65%211.65%21%21%211.65%211.65%21%402103244817450028168368289e6112%2112000018606724058%21sea%21US%216325345170%21X&curPageLogUid=jOroO8Y2KVxR&utparam-url=scene%3Asearch%7Cquery_from%3A
+
+-12v power supply:
+https://www.aliexpress.us/item/3256802164880804.html?spm=a2g0o.productlist.main.47.34ebb93e8Rlgdy&aem_p4p_detail=202504181203262467060604996880000736786&algo_pvid=1e8afa5a-ff71-4802-9519-3941d4019055&algo_exp_id=1e8afa5a-ff71-4802-9519-3941d4019055-23&pdp_ext_f=%7B%22order%22%3A%22154%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%216.84%214.79%21%21%216.84%214.79%21%402101e9a217450030061207261ecf14%2112000020516705499%21sea%21US%216325345170%21X&curPageLogUid=VpcMQrmkfKrB&utparam-url=scene%3Asearch%7Cquery_from%3A&search_p4p_id=202504181203262467060604996880000736786_6
+
+-PTFE Tube Bundle:
+
+-4 way PTFE splitter (you could print one, but these are better):
+https://www.aliexpress.us/item/3256807550249750.html?spm=a2g0o.productlist.main.1.684d213f3RH6YR&algo_pvid=c69ea115-564a-436d-bf3e-ed493b363d01&algo_exp_id=c69ea115-564a-436d-bf3e-ed493b363d01-0&pdp_ext_f=%7B%22order%22%3A%221405%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%216.26%216.26%21%21%2145.46%2145.46%21%402101c72a17450033201354999ec059%2112000042035346114%21sea%21US%216325345170%21X&curPageLogUid=8JMmaVY9ySk8&utparam-url=scene%3Asearch%7Cquery_from%3A
+
+-Bowden Connectors:
+https://www.aliexpress.us/item/3256802572907275.html?spm=a2g0o.productlist.main.57.55986B5e6B5eSq&algo_pvid=23faf04c-f69c-4df6-9402-d2a52fad253c&algo_exp_id=23faf04c-f69c-4df6-9402-d2a52fad253c-28&pdp_ext_f=%7B%22order%22%3A%22196%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%213.10%213.10%21%21%213.10%213.10%21%402101c59517450035053373658e09e1%2112000022053061980%21sea%21US%216325345170%21X&curPageLogUid=q6LMgA1zrk4y&utparam-url=scene%3Asearch%7Cquery_from%3A
+
+-Bowden Tubes (get the 2 or 4 meter option so you have leftover):
+https://www.aliexpress.us/item/3256806056618135.html?spm=a2g0o.productlist.main.1.356bMlGSMlGS68&algo_pvid=7f62b59f-9fd6-46db-8c4e-8943464b8aa7&algo_exp_id=7f62b59f-9fd6-46db-8c4e-8943464b8aa7-0&pdp_ext_f=%7B%22order%22%3A%226160%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%211.30%211.30%21%21%211.30%211.30%21%402101d9ef17450036329265114e5bc0%2112000038262545100%21sea%21US%216325345170%21X&curPageLogUid=M8doN481EznU&utparam-url=scene%3Asearch%7Cquery_from%3A
+
+-A way to hold the spools while printing
+
+[end of updated instructions]
 
 ## Arduino Steps
 - Attach Arduino to CB1/Raspberrypi
@@ -48,100 +94,7 @@ Baud rate for serial port: 250000
 ### Troubles flashing arduino??
 [https://github.com/Klipper3d/klipper/issues/4938#issuecomment-1094246978](https://github.com/Klipper3d/klipper/issues/4938#issuecomment-1094246978)
 
-## Rpi Pico Steps w/ canbus
-This does require a few extra components to get it to work. If you wanted to use usb instead of canbus, you can flash it with your preffered usb settings for the pico.
 
-- Create Config for Rpi Pico
-- Flash Pico
-- Solder together board to connect the pico to the cnc shield
-- Upload multi_color_rpi_pico.cfg to your klipper machine
-  - Update MCU Serial path
-- Setup up your Arduino and CNC sheild to your needs
-
-Extras needed:
-- [Rpi Pico](https://www.amazon.com/Raspberry-Development-Dual-core-Processor-Integrated/dp/B0CPMBRVDX/ref=sr_1_4?crid=L1CHGUTTQ84H&dib=eyJ2IjoiMSJ9._ppkHtY7vs-4LrTJ-McqCu1TUecr6CsdDR6efMbrA8WPjMqv9WjVU6DcHHFAzA5puIvi6Si_lsSmVZTKbH91SAuwXFPLK2wCbo_40BANJ8TsDWlWbMPMhQR6_oRgyadTB8gKAw-e5-GcizpbW09U6ldzaYstuV6lxaHbGvRfFWJIB5HpFneT_VIBhCnQ0864Gs3cty2wE8SEwzn_X57HyE6gyzNJle9aQCBkhNKRd8w.l_6Y5UI3ovRzEVuJOWbXD5v7WxOUXl5LFb3c2sofQSU&dib_tag=se&keywords=pi+pico&qid=1741572097&sprefix=pi+pico%2Caps%2C144&sr=8-4) (instead of the arduino of course)
-- [5v regulator](https://www.amazon.com/Regulator-Step-Down-Converter-MP1584EN-Aircraft/dp/B0DSZKQGBZ/ref=sr_1_2_sspa?crid=13KWI139KTW4K&dib=eyJ2IjoiMSJ9.KKh06qsL4egEaC49ZvfCUnga4qWmuIudwgSt4MXuAf12uSAPdpct8lo2VMLGpUbK6p1CjCXBeHOWUCfLQX9hERO9wD3RmOfhcZn2dy5s7Psb0_rcjMIkL6HwW0OCTkTqNIbDV3MhwZvI2bo5ZT2bwhT9zvI0A9tTjD29A3GbGZJB9mMI3Qb5y0AEl1F52SswXahNUaGy_L0oao6GT7uzgNaa7f_FaFL4IZAdBYaXzpUgSaeuV4qfV-H3igSJ__IgHNIAwBLzGRQqogCqO01R69iReVpl2hTpDFybD7RFTmg.GMzQw9K2ANzKsYbHWC9f5Fo5A_vTHLjkaR3XVUfGoFU&dib_tag=se&keywords=arduino+5v+regulator&qid=1741571818&sprefix=arduino+5v+regulato%2Caps%2C170&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1)
-- [Canbus Transiever](https://www.amazon.com/Comimark-Transceiver-TJA1050-Controller-Schnittstelle/dp/B07W4VZ2F2/ref=sr_1_6?crid=3UUQ0WMAKBQ9T&dib=eyJ2IjoiMSJ9.NNL58DY5rs0tgrb226Z743zWN8BDbmSIM8wmN1WWJ2YklFU70S0qRFwhFjIpNHzKXr7jLPG3msQJ1cjmFi8bQqkKDzD4uvJp2ktCt7moMfijR2BuZKqyshqfsyDogVMdHmk8yUddm-i_5ay8QQIGfwSj4XR20p2_1yf3kVp387Du9V27y2y99Nx7jHHmFGdG-rDUqfVvL9iUiaPTmm4g-mp2dv9WKIQm4HDBtRL6vbU.haqqTQ4DeLRvuclpCep427jMVSTh_vaFISucwu1C2Po&dib_tag=se&keywords=arduino+canbus&qid=1741571775&sprefix=arduino+canbus%2Caps%2C122&sr=8-6)
-- If no can network [a canbus to usb connector](https://www.amazon.com/FYSETC-STM32F072-Interface-Candlelight-Firmware-Pack/dp/B0BPY5HY6C/ref=sr_1_10?crid=21PWTQ6N64RAU&dib=eyJ2IjoiMSJ9.G7yb_kcxYXUZF5oXmMs5a76vK5ESAj9yFeHi24UY5TlHmDgMu44lJKIgRkhbou0ivgAuUe-9u_2Q0wTiJLtJOgn2czgo6Q2nQxLGfEvZ6GsVcQ1ayGmIQsWsPj8TTkvMIX36N__weTc3NrZwT0-aipwJgnLjzjWLLH_9kH0dew7c88pe9wUlNNvTCLkY6hoLCBk5s1sDY6g1JekDeNZ3DHcnspWpboJjucpi18M4eKQ.QP0HqxScm5Gspfbn9y99oVRyHdHoaIzn15dp9q7zMGE&dib_tag=se&keywords=usb+to+canbus&qid=1741572598&sprefix=usb+to+canbus%2Caps%2C135&sr=8-10)
-- Soldering iron
-- Solderable Project board and Screw Terminals (I got these in a [kit](https://www.amazon.com/Sunxeke-Soldering-Electronic-Compatible-Connector/dp/B0BWCFH57N/ref=sr_1_16?crid=2GVC1KBEVDEVE&dib=eyJ2IjoiMSJ9.JQS93JxT9fTg_Qec5prcl7al7vOkyxKy5UiUVLHgq8xwurRgQW98DkB6WHH6_8qHGtafjirL_wfynDdqTwX6Jf4lvuMTn1Dx6AhqZX8AwW0Dkg0eO1SBgi-23lJEM_vODruIG6sPVAVU8Y3V4CK15wrOwOmY9MAbvDXe5w2zfsiIMr9cwaW-Y6IhUcYOFPh5-3rZ6BLdPPwz0N2wU9GyUj9fg-i_cbYMieUXsXykGI8ZqmjYcMZx8VNgsC3IVOshVIT6LcdJ56dgunQyhJw0m0PELgJf0TmgoWfn8Kwe-5iJQ5jKnsQgLubhVQxWSHEMWblKRDbavoJAVUwYCThXOykll9kZf-CLcyHggB_W_4Cb8GBzLxPO39aODuISS_aA5Ey5USL29j7OiBzaC7sK7EEM7XKEq-ajynHZ-aunMbUViCWD07jPqYtGOc_xdxKh.PWyL7fVF9fudB6r4W5Y8kPY1CIk4oalaPABr0BZkRzo&dib_tag=se&keywords=soldering%2Bproject%2Bboard&qid=1741572021&sprefix=soldering%2Bproject%2Bboard%2Caps%2C126&sr=8-16&th=1))
-- Hookup wire (multi colors to help tell things apart)
-
-This does require some soldering skills and tools so... prepare yourself.
-
-### Flash Options for Pi Pico w/ canbus
-You can either setup the flashing file for the pico by either through the klipper folder or KIAUH, here we will do the klipper folder.
-Enter `cd klipper && make menuconfig`
-
-```
-[*] Enable extra low-level configuration options
-Micro-controller Architecture (Raspberry Pi RP2040/RP235x)  --->
-    Processor model (rp2040)  --->
-    Bootloader offset (No bootloader)  --->
-    Flash chip (GENERIC_03H with CLKDIV 4)  --->
-    Communication Interface (CAN bus)  --->
-(4) CAN RX gpio number
-(5) CAN TX gpio number
-(500000) CAN bus speed
-```
-
-### Copy file to klipper config folder
-From the klipper out folder you will need the `klipper.uf2` file. You just need to download it.
-
-### Flash pico
-On your main pc, not the comp for the printer, hook up the pico while holding the "boot" button down.
-It should attach the pico as a storage device. Transfer the Klipper.uf2 file into that storage device. It will reboot and flash the pico.
-It is now flashed with klipper.
-
-## Interfacing the Pico and the CNC sheild
-This will require some soldering equiptment, project circuit boards, and other items to attach the pi and the shield together.
-In my current configuration I have attached the following:
-```
-PICO GPIO6 -> CNC Enable pin
-PICO GPIO7 -> Y DIR
-PICO GPIO8 -> X DIR
-PICO GPIO9 -> Y Steps
-PICO GPIO10 -> X Steps
-```
-You can attach these pins in any way you like there are so many options on the pi pico.
-
-### Note about powering the pico, canbus transiever and the drivers
-One thing that caught me up for a while was that there is a 5v line that would normally be fed from the arduino that is plugged in over usb to the cnc board. This 5v connection is essencial for the drivers to work.
-You should connect the `+/-` of the 5v regulator to `VSYS / GND` on the pico, the `VCC / GND` on the canbus transiever, and the `5v line` of the CNC Sheild.
-
-### Note about wiring the Canbus Transiever and Pico together
-For what ever pins you set in the menuconfig as your RX/TX pins, be sure to hook them to the opposite pins on the Transiever board so RX -> TX and TX -> RX. 
-
-## Setup can network
-On your klipper device enter `sudo nano /etc/network/interfaces.d/can0` and set the contents of the file to the following: 
-```
-allow-hotplug can0
-iface can0 can static
-    bitrate 500000
-    up ifconfig $IFACE txqueuelen 1024
-```
-You really need your bitrate of this file to match the CAN bus speed you set in the pico menuconfig.
-
-### Checking if can connection is working
-Once you've updated your can file you can do two things to check that can is working. Connect your USB can device first.
-Enter: `sudo ifconfig can0`
-You should see something that indicates that the can network is communicating with your usb device.
-Something like:
-```
-can0: flags=193<UP,RUNNING,NOARP>  mtu 16
-        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1024  (UNSPEC)
-        RX packets 17302  bytes 131255 (128.1 KiB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 7790  bytes 46521 (45.4 KiB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-```
-
-### Getting your UUID
-With your can usb device wired into your can to usb device enter `~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0`.
-If you have everything connected correctly you should see a UUID appear. If not then double check that your have your CanH and CanL's connected to the correct parts of the can to usb board. 
-If the can to usb board has screw terminals this would be just switching them and running the above command again.
-
-There might be a resistor that needs to be either soldered or plugged into the board for the can to usb to work here. Also double check if your can to usb board needs this or already has it in place.
 
 # Preparing the slicer!
 
