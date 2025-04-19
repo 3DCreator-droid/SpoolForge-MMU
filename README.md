@@ -62,6 +62,9 @@ https://www.aliexpress.us/item/3256802572907275.html?spm=a2g0o.productlist.main.
 -Bowden Tubes (get the 2 or 4 meter option so you have leftover):
 https://www.aliexpress.us/item/3256806056618135.html?spm=a2g0o.productlist.main.1.356bMlGSMlGS68&algo_pvid=7f62b59f-9fd6-46db-8c4e-8943464b8aa7&algo_exp_id=7f62b59f-9fd6-46db-8c4e-8943464b8aa7-0&pdp_ext_f=%7B%22order%22%3A%226160%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%211.30%211.30%21%21%211.30%211.30%21%402101d9ef17450036329265114e5bc0%2112000038262545100%21sea%21US%216325345170%21X&curPageLogUid=M8doN481EznU&utparam-url=scene%3Asearch%7Cquery_from%3A
 
+-Pin Jumpers (for allowing the "A" axis driver to connect to a motor, and to allow microstepping):
+https://www.aliexpress.us/item/2255800354403384.html?spm=a2g0o.productlist.main.3.2f56f8N4f8N4LT&algo_pvid=f1ef94a7-c302-485d-89c2-8fd11aad9158&algo_exp_id=f1ef94a7-c302-485d-89c2-8fd11aad9158-1&pdp_ext_f=%7B%22order%22%3A%22751%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%210.88%210.88%21%21%210.88%210.88%21%402103244b17450398423115594ea683%2110000002790230890%21sea%21US%216325345170%21X&curPageLogUid=9QTb5Fm6GIvW&utparam-url=scene%3Asearch%7Cquery_from%3A
+
 -A way to hold the spools while printing
 
 [end of updated instructions]
