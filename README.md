@@ -9,7 +9,12 @@ Update Roadmap:
 
 -SpoolForge Enclosure 
 
--Dual 5015 toolhead w/ filament cutter for printers with the Ender-3 extuder plate (encluding CR-10, E3v2, E3 pro, and maybe E3 max)
+-2 new toolheads (bowden and direct drive) for printers with the Ender-3 extuder plate (encluding CR-10, E3v2, E3 pro, and maybe E3 max)
+  Bowden Toolhead: CinderLance
+ 
+  Direct Drive: EmberCore 
+
+  (chatgpt generated "SpoolForge" themed names haha)
 
 -More detailed instructions
 
