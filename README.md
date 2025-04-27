@@ -1,21 +1,16 @@
 # SpoolForge MMU - A budget friendly DIY AMS
-As of right now, this is no different than the repo it was forked from, so go there instead! I have limited time, so I can't update this a bunch, but it will happen eventually. My recomendation
+As of right now, the SpoolForge is no different than the repo it was forked from, so go there instead! I have limited time, so I can't update this a bunch, but it will happen eventually. Here is a bit of information about this project. This project can be used in many ways. You could use the 3MS enclosure with the SpoolForge firmware, or vice versa.
+
 
 Update Roadmap:
 
 -Ease of use macros (the original creator has done a great job already, but there are a few things I would like to add)
 
--AMS.cfg generator: Similar to the 3Dchameleon code generator, but instead of generating button presses, it will generate your macros.
+-AMS.cfg generator: Similar to the 3Dchameleon code and 3MS config generator, but instead of generating button presses or your 3MS config, it will generate your ams.cfg and the needed macros.
 
--SpoolForge Enclosure 
+-SpoolForge Enclosures for different extruder types 
 
--2 new toolheads (bowden and direct drive) for printers with the Ender-3 extuder plate (encluding CR-10, E3v2, E3 pro, and maybe E3 max)
-  
-  Bowden Toolhead: CinderLance
- 
-  Direct Drive: EmberCore 
-
-  (chatgpt generated "SpoolForge" themed names haha)
+-A toolhead (bowden) for printers with the Ender-3 extruder plate (or similar ones, like the CR-10, E3v2, E3 pro, and maybe E3 max) with dual 5015 fans and the 3Dclippy. Literally just a dual 5015 duct merged with the original Ender-3 3Dclippy, so I duubbed it the "Clippy50"
 
 -More detailed instructions
 
