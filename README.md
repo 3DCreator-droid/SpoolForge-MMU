@@ -4,22 +4,22 @@ As of right now, the SpoolForge is no different than the repo it was forked from
 
 Update Roadmap:
 
--Ease of use macros (the original creator has done a great job already, but there are a few things I would like to add)
+-Ease of use macros (the original creator has done a great job already, but there are a few things I would like to add). 99%   done.
 
--AMS.cfg generator: Similar to the 3Dchameleon code and 3MS config generator, but instead of generating button presses or your 3MS config, it will generate your ams.cfg and the needed macros.
+-AMS.cfg generator: Similar to the 3Dchameleon code and 3MS config generator, but instead of generating button presses or your 3MS config, it will generate your ams.cfg and the needed macros. 80% done.
 
--SpoolForge Enclosures for different extruder types 
+-SpoolForge Enclosure (3MS compatible). 5% done.
 
--A toolhead (bowden) for printers with the Ender-3 extruder plate (or similar ones, like the CR-10, E3v2, E3 pro, and maybe E3 max) with dual 5015 fans and the 3Dclippy. Literally just a dual 5015 duct merged with the original Ender-3 3Dclippy, so I duubbed it the "Clippy50"
+-Clippy50 toolhead. A dual 5015 fan toolhead with a filament cutter, compatible with printers with an ender-3 hot end plate. 99% done.
 
--More detailed instructions
+-More detailed instructions. 50% done
 
--Mainsail theme
+-Mainsail theme. 0% done (least priority).
 
 More updates coming soon!
 
 ## Current BOM (may change)
--A Klipper printer with a spare USB port and a filament cutter (the cutter technically isn't required, but you will probably die trying to perfect tip shaping)
+-A Klipper printer/klippy host with a spare USB port and toolhead with a filament cutter. The cutter technically isn't required, but you will probably wish you had one while trying to perfect tip shaping. If you are upgrading from a stock ender-3 based printer, the Clippy50 is a good choice.
 
 -CNC Shield v3 Kit (you could use other boards, like a BTT pico, but this is the most cost effective):
   https://www.aliexpress.us/item/3256808331843303.html?spm=a2g0o.productlist.main.25.78478171IR3BQ9&algo_pvid=1e7f1e16-7855-4b98-9219-3707b2227be7&algo_exp_id=1e7f1e16-7855-4b98-9219-3707b2227be7-12&pdp_ext_f=%7B%22order%22%3A%221%22%2C%22eval%22%3A%221%22%7D&pdp_npi=4%40dis%21USD%2111.08%217.87%21%21%2111.08%217.87%21%402103246617450025792606825e5068%2112000045525251744%21sea%21US%216325345170%21X&curPageLogUid=845Ioq7nRSY0&utparam-url=scene%3Asearch%7Cquery_from%3A
