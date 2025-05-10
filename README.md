@@ -1,5 +1,5 @@
 # SpoolForge MMU - A budget friendly DIY AMS
-As of right now, the SpoolForge is no different than the repo it was forked from, so go there instead! I have limited time, so I can't update this a bunch, but it will happen eventually. Here is a bit of information about this project. This project can be used in many ways. You could use the 3MS enclosure with the SpoolForge firmware, or vice versa.
+The SpoolForge MMU is just a cheaper 3MS with a few custom parts and (optional) simplified firmware. I have limited time, so I can't update this a bunch, but it will happen eventually. Here is a bit of information about this project. This project can be used in many ways. You could use the 3MS enclosure with the SpoolForge firmware, or vice versa.
 
 
 Update Roadmap:
